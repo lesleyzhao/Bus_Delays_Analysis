@@ -1,6 +1,6 @@
 # 🚌 Bus Delays Analysis in NYC
 
-This is the README file for executing and exanimating the code for Bus Delay Analysis.
+This is the README file for executing and exanimating the code for Bus Delay Analysis in HDFS using .scala code files
 
 ### Directories:
 
