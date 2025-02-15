@@ -1,20 +1,20 @@
-# Bus_Delays_Analysis
+# 🚌 Bus Delays Analysis in NYC
 
 This is the README file for executing and exanimating the code for Bus Delay Analysis.
 
-Directories:
+### Directories:
 
 * /data_ingest: contains code to do data ingestion.
 * /etl_code: contains code to clean the data, remove special chars, obtain integers from strings.
 * /profiling_code: contains code to look at the features of each columns, like min, max, average, range, and so on.
 * /ana_code: contains code for analytics. 
 
-  Execution order: trend.scala -> trend2.scala -> route_delay.scala -> route_delay2.scala -> prediction.scala
+### Execution order: trend.scala -> trend2.scala -> route_delay.scala -> route_delay2.scala -> prediction.scala
 
 
 
-Procedures:
-Step 1 Data Ingestion: 
+### Procedures:
+#### 1️⃣ Data Ingestion: 
 * First please upload /data_ingest/ingestion.scala to your Dataproc local by using UPLOAD FILE functionality on the white bar below. Then you can enter the command ls to check whether the upload is successful.
  
 * Then, run the following to execute ingestion.scala by reading dataset from a file called “Bus_Breakdown_and_Delays_20231105.csv” on HDFS
@@ -24,7 +24,7 @@ spark-shell --deploy-mode client -i ingestion.scala
 
 
 
-Step 2 Cleaning & ETL 
+#### 2️⃣ Cleaning & ETL 
 * Please also upload Clean1.scala in /etl_code as we did in Step 1.
 * Run: 
 spark-shell --deploy-mode client --driver-memory 1g --executor-memory 2g --conf spark.dynamicAllocation.enabled=true --conf spark.shuffle.service.enabled=true --conf spark.executor.memoryOverhead=512m -i Clean1.scala
@@ -35,7 +35,7 @@ Notice: this line may report error because Bus_Cleaned directory is already crea
 •	You should see results like this. Previously I saved results on HDFS Bus_Cleaned directory. You may change the directory name if you follow the notice above.
  
 
-Step 3 Profiling
+#### 3️⃣ Profiling
 * Please also upload countRecs.scala in /profiling_code as we did in Step 1.
 * Run:
 spark-shell --deploy-mode client --driver-memory 1g --executor-memory 2g --conf spark.dynamicAllocation.enabled=true --conf spark.shuffle.service.enabled=true --conf spark.executor.memoryOverhead=512m -i countRecs.scala
@@ -53,7 +53,7 @@ Around line 132, If you encounter the previous “directory already existed” e
  
 
 
-Step 4 Analytics
+#### 4️⃣ Analytics
 * 	Please also upload all scala files in /ana_code as we did in Step 1.
 * 	Execute scala files based on this order: 
 trend.scala -> trend2.scala -> route_delay.scala -> route_delay2.scala -> prediction.scala
